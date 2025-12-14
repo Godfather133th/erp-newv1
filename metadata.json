@@ -1,0 +1,5 @@
+{
+  "name": "Iraq National ERP (Rawafed)",
+  "description": "A centralized, multi-tenant Enterprise Resource Planning system for Iraqi Ministries managed by the National Data Center. Features HR, Finance, and SCM modules with full Arabic/English support.",
+  "requestFramePermissions": []
+}
