@@ -26,6 +26,17 @@ export interface Employee {
   salary: number;
   joinDate: string;
   leaveBalance: number;
+  code: string;
+  company: string;
+  jobType: string;
+}
+
+export interface Shift {
+  id: string;
+  nameEn: string;
+  nameAr: string;
+  startTime: string;
+  endTime: string;
 }
 
 export interface TrainingCourse {
@@ -76,6 +87,37 @@ export interface BankAccount {
   lastReconciled: string;
 }
 
+export interface Account {
+  id: string;
+  code: string;
+  nameEn: string;
+  nameAr: string;
+  type: 'Asset' | 'Liability' | 'Equity' | 'Income' | 'Expense';
+  isGroup: boolean;
+  balance: number;
+  children?: Account[];
+}
+
+export interface JournalEntry {
+  id: string;
+  date: string;
+  reference: string;
+  description: string;
+  totalDebit: number;
+  totalCredit: number;
+  status: 'Draft' | 'Posted' | 'Cancelled';
+}
+
+export interface Invoice {
+  id: string;
+  type: 'Sales' | 'Purchase';
+  partyName: string;
+  date: string;
+  dueDate: string;
+  total: number;
+  status: 'Draft' | 'Unpaid' | 'Paid' | 'Overdue';
+}
+
 // SCM Types
 export interface ProcurementRequest {
   id: string;
@@ -95,6 +137,8 @@ export interface InventoryItem {
   quantity: number;
   unit: string;
   status: 'In Stock' | 'Low Stock' | 'Out of Stock';
+  group: string;
+  brand: string;
 }
 
 export interface FixedAsset {
@@ -106,6 +150,20 @@ export interface FixedAsset {
   depreciationMethod: 'Fixed Monthly' | 'Actual Days';
   location: string;
   bookValue: number;
+}
+
+export interface MaterialRequest {
+    id: string;
+    date: string;
+    user: string;
+    purpose: string;
+    requiredDate: string;
+    items: {
+        itemCode: string;
+        qty: number;
+        warehouse: string;
+    }[];
+    status: 'Draft' | 'Pending' | 'Ordered';
 }
 
 // ESS Types
